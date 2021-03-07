@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace I4GUI_Assignment1_TheDebtBook.ViewModel
+namespace I4GUI_Assignment1_TheDebtBook
 {
-	class Class1
+	class MainWindowViewModel
 	{
 	}
 }
