@@ -6,7 +6,34 @@
         xmlns:local="clr-namespace:I4GUI_Assignment1_TheDebtBook"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Debtors/Creditors" Margin="3" Grid.Column="0" Grid.Row="0" FontSize="20" FontWeight="Bold"/>
+        <Button Content="ADD" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10" Width="100" Command="{Binding Path=AddNewAgentCommand}" HorizontalAlignment="Center"/>
+        <DataGrid Name="lbxAgents" ItemsSource="{Binding Path=Debtor}" 
+                 SelectedItem="{Binding Path=?}" 
+                 SelectedIndex="{Binding Path=?}" 
+                 IsSynchronizedWithCurrentItem="True"
+                 Grid.Column="0" 
+                 Grid.Row="1"
+                 Grid.RowSpan="4"
+                 Margin="3"
+                 CanUserAddRows="False" 
+                 CanUserDeleteRows="False" 
+                 IsReadOnly="True">
+        </DataGrid>
     </Grid>
 </Window>
