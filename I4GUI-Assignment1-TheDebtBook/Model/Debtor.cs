@@ -17,9 +17,9 @@ namespace I4GUI_Assignment1_TheDebtBook
 
 		}
 
-		public Debtor(string name, int startValue)
+		public Debtor(string dName, int startValue)
 		{
-			Name = name;
+			name = dName;
 			currentDebt = startValue;
 			debits = new ObservableCollection<Debit>();
 			debits.Add(new Debit(startValue, DateTime.Now.Date));
