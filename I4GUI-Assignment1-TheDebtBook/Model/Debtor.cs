@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace I4GUI_Assignment1_TheDebtBook.Model
 {
-	class Class1
+	class Debtor
 	{
 	}
 }
