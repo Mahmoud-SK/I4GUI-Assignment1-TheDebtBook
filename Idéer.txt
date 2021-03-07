@@ -1,0 +1,15 @@
+3 ViewModels:
+
+Main ViewModel, som har listen over debtors/creditors og hvor meget de skylder.
+
+Add debtor ViewModel, som bruges til at tilføje en ny person til listen over debtors og hvor meget deres initial value er.
+
+Overview ViewModel
+
+
+Models:
+
+Debtor klasse
+Debit klasse
+
+
