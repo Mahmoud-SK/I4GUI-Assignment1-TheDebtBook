@@ -73,8 +73,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Class1.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="Model\Debit.cs" />
+    <Compile Include="Model\Debtor.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
