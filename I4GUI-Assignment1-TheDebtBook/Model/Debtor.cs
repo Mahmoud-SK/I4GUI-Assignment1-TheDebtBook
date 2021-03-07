@@ -21,6 +21,8 @@ namespace I4GUI_Assignment1_TheDebtBook
 		{
 			Name = name;
 			currentDebt = startValue;
+			debits = new ObservableCollection<Debit>();
+			debits.Add(new Debit(startValue, DateTime.Now.Date));
 		}
 
 		private string name;

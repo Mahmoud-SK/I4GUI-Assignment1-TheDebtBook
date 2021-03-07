@@ -9,13 +9,13 @@ namespace I4GUI_Assignment1_TheDebtBook
     public class Debit
     {
         private int amount;
-        private string date;
+        private DateTime date;
 
         public Debit()
         {
         }
 
-        public Debit(int dAmount, string dDate)
+        public Debit(int dAmount, DateTime dDate)
         {
             amount = dAmount;
             date = dDate;
@@ -33,7 +33,7 @@ namespace I4GUI_Assignment1_TheDebtBook
             }
         }
 
-        public string Date
+        public DateTime Date
         {
             get
             {
