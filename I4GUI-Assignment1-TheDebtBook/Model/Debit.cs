@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace I4GUI_Assignment1_TheDebtBook.Model
+namespace I4GUI_Assignment1_TheDebtBook
 {
     public class Debit
     {
