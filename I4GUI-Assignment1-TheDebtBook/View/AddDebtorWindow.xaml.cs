@@ -23,5 +23,14 @@ namespace I4GUI_Assignment1_TheDebtBook.View
         {
             InitializeComponent();
         }
+
+        private void txb3_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as AddDebtorViewModel;
+            if (vm.IsValid)
+                DialogResult = true;
+            else
+                MessageBox.Show("Enter name and initial value","Missing data");
+        }
     }
 }

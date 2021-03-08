@@ -5,25 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:I4GUI_Assignment1_TheDebtBook.View"
         mc:Ignorable="d"
-        Title="AddDebtorWindow" Height="450" Width="800">
+        Title="AddDebtorWindow" Height="300" Width="250">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-           
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-    <TextBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Name="txb1" Text="{Binding Path=?}" />
-    <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="txb2" Text="{Binding Path=?}" />
-    <Button Grid.Column="0" Grid.Row="2" Name="txb3"  Content="Save" />
-    <Button Grid.Column="1" Grid.Row="2" Name="txb4"  Content="Cancel" />
+        <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Name="txb1" Text="{Binding Path= NewDebtor.Name}" />
+        <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Name="txb2" Text="{Binding Path= NewDebtor.CurrentDebt}" />
 
+        <WrapPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" >
+            <Button Grid.Column="0" Grid.Row="2" Margin="5" Width="50" Height="20" Name="txb3"  Content="Save" Click="txb3_Click"  />
+            <Button Grid.Column="1" Grid.Row="2" Margin="5" Width="50" Height="20"  Name="txb4"  Content="Cancel" IsCancel="True" />
+        </WrapPanel>
 
-
-</Grid>
+    </Grid>
 </Window>
