@@ -73,8 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-
-   
+    <Compile Include="Model\Repository.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Model\Debit.cs" />
     <Compile Include="Model\Debtor.cs" />

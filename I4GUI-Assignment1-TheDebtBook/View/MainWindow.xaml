@@ -9,31 +9,45 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="100*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="200*"/>
-        </Grid.RowDefinitions>
+    <DockPanel Name="dockPanelMain">
+        <Menu DockPanel.Dock="Top" Grid.Row="0">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="New" Header="New" Command="{Binding NewFileCommand}"></MenuItem>
+                <MenuItem Header="Open" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"></MenuItem>
+                <MenuItem Header="Save" Command="{Binding SaveCommand}"></MenuItem>
+                <MenuItem Header="Save As" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"></MenuItem>
+                <MenuItem Header="_Exit" Command="{Binding CloseAppCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
 
-        <Label Content="Debtors/Creditors" Margin="3" Grid.Column="0" Grid.Row="0" FontSize="20" FontWeight="Bold"/>
-        <Button Content="ADD" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10" Width="100" Command="{Binding Path=AddNewAgentCommand}" HorizontalAlignment="Center"/>
-        <DataGrid Name="lbxAgents" ItemsSource="{Binding Path=Debtor}" 
-                 SelectedItem="{Binding Path=?}" 
-                 SelectedIndex="{Binding Path=?}" 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="231*"/>
+                <ColumnDefinition Width="159*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="200*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Debtors/Creditors" Margin="3,3,3,2.6" Grid.Column="0" Grid.Row="0" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <Button Content="ADD" FontSize="20" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Margin="109,10.4,108.6,10.2" Width="100" Command="{Binding Path=AddWindowCommand}" HorizontalAlignment="Center"/>
+            <DataGrid Name="lbxDebtor" ItemsSource="{Binding Path=Debtors}" 
+                 SelectedItem="{Binding Path=CurrentDebtor}" 
+                 SelectedIndex="{Binding Path=CurrentIndex}" 
                  IsSynchronizedWithCurrentItem="True"
                  Grid.Column="0" 
                  Grid.Row="1"
-                 Grid.RowSpan="4"
-                 Margin="3"
+                 Grid.RowSpan="3"
+                 Margin="3,3.4"
                  CanUserAddRows="False" 
                  CanUserDeleteRows="False" 
-                 IsReadOnly="True">
-        </DataGrid>
-    </Grid>
+                 IsReadOnly="True" Grid.ColumnSpan="2">
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+
 </Window>
