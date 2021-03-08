@@ -24,10 +24,10 @@ namespace I4GUI_Assignment1_TheDebtBook
 		public MainWindowViewModel()
 		{
 			debtors = new ObservableCollection<Debtor>();
-			debtors.Add(new Debtor());
-			debtors.Add(new Debtor());
-			debtors.Add(new Debtor());
-			debtors.Add(new Debtor());
+			debtors.Add(new Debtor("Lars",2000));
+			debtors.Add(new Debtor("Morten", 1500));
+			debtors.Add(new Debtor("Nikolaj", 1000));
+			debtors.Add(new Debtor("Yuhu", 3000));
 		}
 
 		#region Properties
@@ -67,15 +67,32 @@ namespace I4GUI_Assignment1_TheDebtBook
 
 		private void SaveAsCommand_Execute(string argFilename)
 		{
-			if (argFilename == "")
-			{
-				MessageBox.Show("You must enter a file name in the File Name textbox!", "Unable to save file",
-					MessageBoxButton.OK, MessageBoxImage.Exclamation);
-			}
+			var dialog = new SaveFileDialog();
+
+			dialog.Filter = "Debtor/Creditor documents|*.tdb|All Files|*.*";
+			dialog.DefaultExt = "tdb";
+			if (filepath == "")
+				dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			else
+				dialog.InitialDirectory = Path.GetDirectoryName(filepath);
+
+			if (dialog.ShowDialog(App.Current.MainWindow) == true)
 			{
-				filename = argFilename;
-				SaveFileCommand_Execute();
+				filepath = dialog.FileName;
+				filename = Path.GetFileName(filepath);
+				SaveFile();
+			}
+		}
+
+		private void SaveFile()
+		{
+			try
+			{
+				Repository.SaveFile(filepath, Debtors);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Unable to save file", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
 
