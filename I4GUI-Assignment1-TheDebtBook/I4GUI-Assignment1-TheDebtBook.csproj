@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AddDebitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddDebtorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +86,9 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Model\Debit.cs" />
     <Compile Include="Model\Debtor.cs" />
+    <Compile Include="View\AddDebitWindow.xaml.cs">
+      <DependentUpon>AddDebitWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddDebtorWindow.xaml.cs">
       <DependentUpon>AddDebtorWindow.xaml</DependentUpon>
     </Compile>

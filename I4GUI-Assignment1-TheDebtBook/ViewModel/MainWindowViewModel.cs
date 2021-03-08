@@ -172,6 +172,28 @@ namespace I4GUI_Assignment1_TheDebtBook
 				}
 			}
 		}
+
+		ICommand _addCommand;
+		public ICommand AddCommand
+		{
+			get
+			{
+				return _addCommand ?? (_addCommand = new DelegateCommand(() =>
+				{
+					var newDebtor = new Debtor();
+					var vm = new AddDebtorViewModel(newDebtor);
+					var dlg = new AddDebtorWindow();
+					dlg.DataContext = vm;
+					if (dlg.ShowDialog() == true)
+					{
+						Debtors.Add(newDebtor);
+						CurrentDebtor = newDebtor;
+					}
+				}));
+			}
+		}
+
+
 		#endregion
 	}
 }

@@ -1,9 +1,9 @@
-﻿<Window x:Class="I4GUI_Assignment1_TheDebtBook.View.AddDebtorWindow"
+﻿<Window x:Class="I4GUI_Assignment1_TheDebtBook.AddDebtorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:I4GUI_Assignment1_TheDebtBook.View"
+        xmlns:local="clr-namespace:I4GUI_Assignment1_TheDebtBook"
         mc:Ignorable="d"
         Title="AddDebtorWindow" Height="300" Width="250">
     <Grid>

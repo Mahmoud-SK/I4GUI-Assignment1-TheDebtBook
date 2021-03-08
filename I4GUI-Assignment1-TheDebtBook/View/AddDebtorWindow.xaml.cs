@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace I4GUI_Assignment1_TheDebtBook.View
+namespace I4GUI_Assignment1_TheDebtBook
 {
     /// <summary>
     /// Interaction logic for AddDebtorWindow.xaml
