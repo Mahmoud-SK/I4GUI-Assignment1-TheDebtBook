@@ -48,7 +48,7 @@
                  Grid.ColumnSpan="2">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding ???}"/>
+                        <i:InvokeCommandAction Command="{Binding EditDebitCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <DataGrid.Columns>

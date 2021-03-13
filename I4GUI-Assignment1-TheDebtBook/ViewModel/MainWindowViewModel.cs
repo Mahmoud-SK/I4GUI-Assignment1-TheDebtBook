@@ -194,31 +194,24 @@ namespace I4GUI_Assignment1_TheDebtBook
 			}
 		}
 
-		//ICommand _editDebitCommand;
-		//public ICommand EditDebitCommand
-		//{
-		//	get
-		//	{
-		//		return _editDebitCommand ?? (_editDebitCommand = new DelegateCommand(() =>
-		//		{
-		//			var tempDebtor = CurrentDebtor.Clone();
-		//			var avm = new AddDebitViewModel("Edit Agent", tempAgent);
-		//			avm.Specialities = Special;
-		//			var dlg = new AgentModal();
-		//			dlg.DataContext = avm;
-		//			dlg.Owner = App.Current.MainWindow;
-		//			if (dlg.ShowDialog() == true)
-		//			{
-		//				CurrentAgent.ID = tempAgent.ID;
-		//				CurrentAgent.CodeName = tempAgent.CodeName;
-		//				CurrentAgent.Speciality = tempAgent.Speciality;
-		//				CurrentAgent.Assignment = tempAgent.Assignment;
-
-		//			}
-		//		},
-		//		() => { return SelectedIndex >= 0; }).ObservesProperty(() => SelectedIndex));
-		//	}
-		//}
+		ICommand _editDebitCommand;
+		public ICommand EditDebitCommand
+		{
+			get
+			{
+				return _editDebitCommand ?? (_editDebitCommand = new DelegateCommand(() =>
+				{
+					var tempDebtor = CurrentDebtor.Clone();
+					var avm = new AddDebitViewModel(tempDebtor);
+					var dlg = new AddDebitWindow();
+					dlg.DataContext = avm;
+					dlg.Owner = App.Current.MainWindow;
+					dlg.ShowDialog();
+					
+				},
+				() => { return CurrentIndex >= 0; }).ObservesProperty(() => CurrentIndex));
+			}
+		}
 
 		ICommand _closeAppCommand;
 		public ICommand CloseAppCommand

@@ -13,6 +13,7 @@ namespace I4GUI_Assignment1_TheDebtBook
     class AddDebitViewModel: BindableBase
     {
         private Debtor currentDebtor;
+        private int newValue;
 
         public AddDebitViewModel(Debtor debtor)
         {
@@ -31,6 +32,18 @@ namespace I4GUI_Assignment1_TheDebtBook
             }
         }
 
+        public int NewValue
+        {
+            get
+            {
+                return newValue;
+            }
+            set
+            {
+                SetProperty(ref newValue, value);
+            }
+        }
+
         private ICommand _addDebitCommand;
 
         public ICommand AddDebitCommand
@@ -38,7 +51,7 @@ namespace I4GUI_Assignment1_TheDebtBook
             get
             {
                 return _addDebitCommand ?? (_addDebitCommand =
-                    new DelegateCommand<string>(AddDebitCommand_Execute, AddDebitCommand_CanExecute));
+                    new DelegateCommand<string>(AddDebitCommand_Execute, AddDebitCommand_CanExecute).ObservesProperty(() => NewValue));
             }
         }
 
