@@ -82,6 +82,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Repository.cs" />
+    <Compile Include="ViewModel\AddDebitViewModel.cs" />
     <Compile Include="ViewModel\AddDebtorViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Model\Debit.cs" />
