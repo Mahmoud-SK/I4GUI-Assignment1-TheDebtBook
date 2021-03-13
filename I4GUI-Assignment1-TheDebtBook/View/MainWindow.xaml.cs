@@ -23,6 +23,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 		public MainWindow()
 		{
 			InitializeComponent();
+
 		}
 	}
 }

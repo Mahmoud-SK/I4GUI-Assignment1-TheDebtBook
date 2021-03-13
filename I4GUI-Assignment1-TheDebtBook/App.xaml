@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:I4GUI_Assignment1_TheDebtBook"
              StartupUri="View\MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12pt"/>
+        </Style>
+        <Style x:Key="MenuStyle" TargetType="{x:Type Menu}">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="10pt"/>
+        </Style>
     </Application.Resources>
 </Application>

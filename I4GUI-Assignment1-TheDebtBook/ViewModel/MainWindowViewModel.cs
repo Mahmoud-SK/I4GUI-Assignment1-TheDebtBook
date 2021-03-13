@@ -28,6 +28,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 			debtors.Add(new Debtor("Morten", 1500));
 			debtors.Add(new Debtor("Nikolaj", 1000));
 			debtors.Add(new Debtor("Yuhu", 3000));
+			CurrentDebtor = debtors[0];
 		}
 
 		#region Properties
@@ -189,6 +190,44 @@ namespace I4GUI_Assignment1_TheDebtBook
 						Debtors.Add(newDebtor);
 						CurrentDebtor = newDebtor;
 					}
+				}));
+			}
+		}
+
+		//ICommand _editDebitCommand;
+		//public ICommand EditDebitCommand
+		//{
+		//	get
+		//	{
+		//		return _editDebitCommand ?? (_editDebitCommand = new DelegateCommand(() =>
+		//		{
+		//			var tempDebtor = CurrentDebtor.Clone();
+		//			var avm = new AddDebitViewModel("Edit Agent", tempAgent);
+		//			avm.Specialities = Special;
+		//			var dlg = new AgentModal();
+		//			dlg.DataContext = avm;
+		//			dlg.Owner = App.Current.MainWindow;
+		//			if (dlg.ShowDialog() == true)
+		//			{
+		//				CurrentAgent.ID = tempAgent.ID;
+		//				CurrentAgent.CodeName = tempAgent.CodeName;
+		//				CurrentAgent.Speciality = tempAgent.Speciality;
+		//				CurrentAgent.Assignment = tempAgent.Assignment;
+
+		//			}
+		//		},
+		//		() => { return SelectedIndex >= 0; }).ObservesProperty(() => SelectedIndex));
+		//	}
+		//}
+
+		ICommand _closeAppCommand;
+		public ICommand CloseAppCommand
+		{
+			get
+			{
+				return _closeAppCommand ?? (_closeAppCommand = new DelegateCommand(() =>
+				{
+					App.Current.MainWindow.Close();
 				}));
 			}
 		}

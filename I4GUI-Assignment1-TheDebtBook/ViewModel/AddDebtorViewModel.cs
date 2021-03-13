@@ -18,7 +18,6 @@ namespace I4GUI_Assignment1_TheDebtBook
 
         public Debtor NewDebtor
         {
-
             get
             {
                 return newDebtor;

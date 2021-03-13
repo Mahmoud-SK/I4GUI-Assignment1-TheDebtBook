@@ -64,6 +64,10 @@ namespace I4GUI_Assignment1_TheDebtBook
 				}
 			}
 		}
+		public Debtor Clone()
+		{
+			return this.MemberwiseClone() as Debtor;
+		}
 
 	}
 }
