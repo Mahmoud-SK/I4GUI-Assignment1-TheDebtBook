@@ -12,12 +12,14 @@
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <WrapPanel>
-            <DataGrid HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="278"/>
+            <DataGrid HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="278"
+                      ItemsSource="{Binding Path=CurrentDebtor.Debits}"/>
             <Button Content="Close" Height="23" Width="120" Margin="5" HorizontalAlignment="Center" IsCancel="True"/>
         </WrapPanel>
         <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Width="120" Margin="5" />
-            <Button Content="Add Value" Height="23" Width="120" Margin="5"/>
+            <TextBox Name="tbxValue"  Grid.Column="1" HorizontalAlignment="Left" Height="23" Width="120" Margin="5"/>
+            <Button Content="Add Value" Height="23" Width="120" Margin="5" Command="{Binding AddDebitCommand}" 
+                    CommandParameter="{Binding ElementName=tbxValue, Path=Text}"/>
         </WrapPanel>
     </Grid>
 </Window>
