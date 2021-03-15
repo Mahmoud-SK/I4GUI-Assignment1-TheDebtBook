@@ -207,6 +207,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 					dlg.DataContext = avm;
 					dlg.Owner = App.Current.MainWindow;
 					dlg.ShowDialog();
+					currentDebtor.CurrentDebt += avm.NewValue;
 					
 				},
 				() => { return CurrentIndex >= 0; }).ObservesProperty(() => CurrentIndex));
