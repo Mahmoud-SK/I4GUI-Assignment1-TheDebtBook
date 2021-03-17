@@ -24,9 +24,9 @@ namespace I4GUI_Assignment1_TheDebtBook
 		public MainWindowViewModel()
 		{
 			debtors = new ObservableCollection<Debtor>();
-			debtors.Add(new Debtor("Lars",2000));
-			debtors.Add(new Debtor("Morten", 1500));
-			debtors.Add(new Debtor("Nikolaj", 1000));
+			debtors.Add(new Debtor("Mahmoud",-2000));
+			debtors.Add(new Debtor("Lasse", 1500));
+			debtors.Add(new Debtor("Magnus", 1000));
 			debtors.Add(new Debtor("Yuhu", 3000));
 			CurrentDebtor = debtors[0];
 		}
@@ -103,18 +103,27 @@ namespace I4GUI_Assignment1_TheDebtBook
 			get
 			{
 				return _SaveCommand ?? (_SaveCommand = new DelegateCommand(SaveFileCommand_Execute, SaveFileCommand_CanExecute)
-				  .ObservesProperty(() => debtors.Count));
+				  .ObservesProperty(() => Debtors.Count));
 			}
 		}
 
 		private void SaveFileCommand_Execute()
 		{
-			// Create an instance of the XmlSerializer class and specify the type of object to serialize.
-			XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Debtor>));
-			TextWriter writer = new StreamWriter(filename);
-			// Serialize all the agents.
-			serializer.Serialize(writer, Debtors);
-			writer.Close();
+			try
+			{
+				// Create an instance of the XmlSerializer class and specify the type of object to serialize.
+				XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Debtor>));
+				TextWriter writer = new StreamWriter(filename);
+				// Serialize all the agents.
+				serializer.Serialize(writer, Debtors);
+				writer.Close();
+			}
+			catch (Exception ex)
+			{
+
+				MessageBox.Show(ex.Message, "Unable to save file", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+
 		}
 
 		private bool SaveFileCommand_CanExecute()
@@ -187,6 +196,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 					dlg.DataContext = vm;
 					if (dlg.ShowDialog() == true)
 					{
+						
 						Debtors.Add(newDebtor);
 						CurrentDebtor = newDebtor;
 					}
@@ -207,7 +217,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 					dlg.DataContext = avm;
 					dlg.Owner = App.Current.MainWindow;
 					dlg.ShowDialog();
-					currentDebtor.CurrentDebt += avm.NewValue;
+					CurrentDebtor.CurrentDebt += avm.TotalAddedValue;
 					
 				},
 				() => { return CurrentIndex >= 0; }).ObservesProperty(() => CurrentIndex));

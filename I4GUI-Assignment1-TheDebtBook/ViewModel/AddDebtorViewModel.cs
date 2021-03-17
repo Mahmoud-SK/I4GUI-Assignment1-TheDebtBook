@@ -38,6 +38,12 @@ namespace I4GUI_Assignment1_TheDebtBook
                 return isValid;
             }
         }
+
+        public void CreateDebit()
+		{
+            newDebtor.Debits.Add(new Debit(newDebtor.CurrentDebt, DateTime.Now));
+		}
+
     }
 
 

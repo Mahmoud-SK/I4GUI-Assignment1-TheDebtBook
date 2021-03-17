@@ -14,7 +14,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 		private ObservableCollection<Debit> debits;
 		public Debtor()
 		{
-
+			debits = new ObservableCollection<Debit>();
 		}
 
 		public Debtor(string dName, int startValue)
@@ -22,7 +22,7 @@ namespace I4GUI_Assignment1_TheDebtBook
 			name = dName;
 			currentDebt = startValue;
 			debits = new ObservableCollection<Debit>();
-			debits.Add(new Debit(startValue, DateTime.Now.Date));
+			debits.Add(new Debit(startValue, DateTime.Now));
 		}
 
 		private string name;

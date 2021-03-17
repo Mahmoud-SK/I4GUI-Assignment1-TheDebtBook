@@ -14,10 +14,12 @@ namespace I4GUI_Assignment1_TheDebtBook
     {
         private Debtor currentDebtor;
         private int newValue;
+        private int totalAddedValue;
 
         public AddDebitViewModel(Debtor debtor)
         {
             currentDebtor = debtor;
+            totalAddedValue = 0;
         }
 
         public Debtor CurrentDebtor
@@ -44,7 +46,19 @@ namespace I4GUI_Assignment1_TheDebtBook
             }
         }
 
-        private ICommand _addDebitCommand;
+		public int TotalAddedValue
+		{
+			get
+			{
+                return totalAddedValue;
+			}
+			set
+			{
+                totalAddedValue = value;
+			}
+		}
+
+		private ICommand _addDebitCommand;
 
         public ICommand AddDebitCommand
         {
@@ -57,8 +71,9 @@ namespace I4GUI_Assignment1_TheDebtBook
 
         public void AddDebitCommand_Execute(string value)
         {
-            Debit newDebit = new Debit(int.Parse(value), DateTime.Now.Date);
+            Debit newDebit = new Debit(int.Parse(value), DateTime.Now);
             currentDebtor.Debits.Add(newDebit);
+            totalAddedValue += int.Parse(value);
         }
 
         public bool AddDebitCommand_CanExecute(string value)

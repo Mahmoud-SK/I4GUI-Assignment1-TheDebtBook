@@ -28,7 +28,10 @@ namespace I4GUI_Assignment1_TheDebtBook
         {
             var vm = DataContext as AddDebtorViewModel;
             if (vm.IsValid)
+			{
+                vm.CreateDebit();
                 DialogResult = true;
+            }
             else
                 MessageBox.Show("Enter name and initial value","Missing data");
         }
